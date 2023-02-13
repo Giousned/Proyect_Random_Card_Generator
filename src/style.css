@@ -1,1 +1,48 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
+
+.card {
+  width: 400px;
+  height: 500px;
+}
+/* que aplique los estilos generales a cada carta */
+
+body {
+  font-size: 30px;
+}
+
+.card-body {
+  font-size: 150px;
+}
+
+.symbol {
+  font-size: 80px;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  position: left;
+}
+
+#girar {
+  -moz-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+.spade {
+}
+.club {
+}
+.heart {
+}
+.diamond {
+}
+
+/* 
+    Aplica la clase .card a toda la división,
+    pero solo aplica una de las clases de la pinta/palo a la vez,
+    dependiendo de la pinta/palo que desees aplicar.
+    
+    Por ejemplo, un 3 de corazones tendrá esta declaración HTML:
+    <div class='card heart'></div>
+*/
