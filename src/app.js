@@ -18,18 +18,27 @@ window.onload = function() {
     paloCarta = Math.floor(Math.random() * 4);
     numeroCarta = Math.floor(Math.random() * 12);
 
-    let cartaNumero = document.querySelector(".card-text");
+    let cartaNumero = document.querySelector(".card-body");
     cartaNumero.textContent = numerosCartas[numeroCarta];
 
     let cartaSimbolo = document.querySelectorAll(".symbol");
     for (let i = 0; i < cartaSimbolo.length; i++) {
       cartaSimbolo[i].innerHTML = palosCartas[paloCarta];
+      if (paloCarta === 0 || paloCarta === 3) {
+        cartaSimbolo[i].classList.add("rojo");
+      } else cartaSimbolo[i].classList.remove("rojo");
     }
   }
 
   const boton = document.querySelector("#boton");
   boton.addEventListener("click", crearCarta);
 };
+
+// n = 0;
+// x = setInterval(function() {
+//   console.log(n);
+//   n++;
+// }, 1000);
 
 // console.log("Hello Rigo from the console!");
 // let cartaSimbolo = document.querySelectorAll(".symbol");

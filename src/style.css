@@ -1,26 +1,45 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 
+body {
+  font-size: 30px;
+  background-color: green;
+}
+
 .card {
   width: 400px;
   height: 500px;
+  background-color: white;
+  margin-top: 20px;
 }
 /* que aplique los estilos generales a cada carta */
 
-body {
-  font-size: 30px;
-}
-
 .card-body {
-  font-size: 150px;
+  font-size: 100px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
 }
 
 .symbol {
   font-size: 80px;
   padding: 0;
-  margin: 0;
+  margin-left: 10px;
   display: flex;
   position: left;
+  color: black;
 }
+
+/* .symbol {
+  -moz-transform: translate(10px, -25px);
+  -webkit-transform: translate(10px, -25px);
+  -o-transform: translate(10px, -25px);
+  -ms-transform: translate(10px, -25px);
+  transform: translate(10px, -25px);
+}
+*/
 
 #girar {
   -moz-transform: rotate(180deg);
@@ -28,16 +47,21 @@ body {
   -o-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
+  margin-right: 10px;
 }
-.spade {
+
+.rojo {
+  color: red;
+}
+
+/* .spade {
 }
 .club {
 }
 .heart {
 }
 .diamond {
-}
-
+} */
 /* 
     Aplica la clase .card a toda la división,
     pero solo aplica una de las clases de la pinta/palo a la vez,
