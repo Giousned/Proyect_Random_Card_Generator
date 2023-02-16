@@ -30,20 +30,75 @@ window.onload = function() {
     }
   }
 
+  // function addTimer() {
+  //   botonTimer.innerHTML = "Timer Loading...";
+  //   console.log("In 10 sec Reload");
+  // }
+
+  function addTimer() {
+    let time = 5;
+    let timer = setInterval(function() {
+      if (time > 0) {
+        time--;
+        botonTimer.disabled = true;
+        botonTimer.innerHTML = "Reload in " + time + " seconds...";
+      }
+      if (time === 0) {
+        botonTimer.disabled = false;
+        botonTimer.innerHTML = "Click Me Again!";
+        crearCarta();
+        clearInterval(timer);
+      }
+    }, 250);
+  }
+
+  let botonSubmit = document.getElementById("botonSubmit");
+
+  function clickbutton() {
+    // simulamos el click del mouse en el boton del formulario
+    document.getElementById("botonSubmit").click();
+  }
+
+  function selectSize() {
+    // let cartaSize = document.querySelector(".card");
+    let inputElements = document.getElementsByTagName("input");
+
+    // Execute a function when the user presses click on mouse
+    botonSubmit.addEventListener("click", function(event) {
+      // Cancel the default action, if needed (NO LO SÉ LA VERDAD SI HACE FALTA, CREO QUE NO, PORQUE NO ES UN SUBMIT)
+      event.preventDefault();
+
+      if (inputElements[0].value > 200 && inputElements[1].value > 200) {
+        for (let i = 0; i < inputElements.length; i++) {
+          document.querySelector(".card").style.width =
+            inputElements[0].value + "px";
+          document.querySelector(".card").style.height =
+            inputElements[1].value + "px";
+        }
+        if (inputElements[1].value > 200) {
+          document.querySelector("body").style.fontSize = 4 + "em";
+        } else document.querySelector("body").style.fontSize = 2 + "em";
+        crearCarta();
+
+        botonSubmit.dataset.bsDismiss = "modal";
+
+        clickbutton();
+      }
+      botonSubmit.dataset.bsDismiss = "";
+    });
+  }
+
   const boton = document.querySelector("#boton");
   boton.addEventListener("click", crearCarta);
+
+  const botonTimer = document.querySelector("#botonTimer");
+  botonTimer.addEventListener("click", addTimer);
+
+  const botonSize = document.querySelector("#botonSize");
+  botonSize.addEventListener("click", selectSize);
 };
 
-// n = 0;
-// x = setInterval(function() {
-//   console.log(n);
-//   n++;
-// }, 1000);
-
-// console.log("Hello Rigo from the console!");
-// let cartaSimbolo = document.querySelectorAll(".symbol");
-// for (let i = 0; i < cartaSimbolo.length; i++) {
-//   if (palosCartas[paloCarta] == 0) {
-//     cartaSimbolo[i].textContent = palosCartas[paloCarta];
-//   }
-// }
+//<button class="btn btn-secondary" data-bs-toggle="popover" title="Popover title" data-bs-content="Popover body content is set in this attribute.">button</button>
+// alert("Minimum allowed values equal to 200"); // NO SE COMO PONER ALERTAS O MENSAJES CON EL MODAL O QUE FUNCIONEN LOS REQUERIMIENTOS DE LOS INPUTS DEL MODAL
+// botonSubmit.dataset.bsDismiss = "";
+// event.preventDefault();

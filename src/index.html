@@ -16,13 +16,97 @@
   <body>
     <div class="text-center">
       <div class="card mx-auto">
-        <div class="symbol">♦</div>
+        <div class="symbol ms-2">
+          ♦
+        </div>
         <div class="card-body">Numero</div>
-        <div id="girar" class="symbol">♦</div>
+        <div id="girar" class="symbol me-2">♦</div>
       </div>
       <button type="button" id="boton" class="btn btn-danger mt-2">
-        Refresh
+        ¡Refresh!
       </button>
+      <button type="button" id="botonTimer" class="btn btn-primary mt-2">
+        ¡Set Timer!
+      </button>
+
+      <!-- Button trigger modal -->
+      <button
+        type="button"
+        id="botonSize"
+        class="btn btn-warning d-flex mt-2 mx-auto"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+      >
+        ¡Set Size!
+      </button>
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
+                Size of Cards (in px)
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <input
+                  type="number"
+                  id="sizes"
+                  value=""
+                  placeholder="Type width here..."
+                  min="200"
+                  max="1000"
+                  required
+                  onkeypress="return event.charCode>=48 && event.charCode<=57"
+                />
+                <input
+                  type="number"
+                  id="sizes"
+                  value=""
+                  placeholder="Type height here..."
+                  min="200"
+                  max="1000"
+                  required
+                  onkeypress="return event.charCode>=48 && event.charCode<=57"
+                />
+              </form>
+            </div>
+            <div class="modal-footer">
+              <div class="mx-auto">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button
+                  type="button"
+                  id="botonSubmit"
+                  class="btn btn-success"
+                  data-bs-dismiss=""
+                >
+                  Save changes
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>

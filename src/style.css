@@ -1,7 +1,7 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 
 body {
-  font-size: 30px;
+  font-size: 4em;
   background-color: green;
 }
 
@@ -14,8 +14,9 @@ body {
 /* que aplique los estilos generales a cada carta */
 
 .card-body {
-  font-size: 100px;
-  height: 100%;
+  font-size: 2em;
+  height: auto;
+  width: auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -24,44 +25,41 @@ body {
 }
 
 .symbol {
-  font-size: 80px;
+  /* font-size: 2em; */
   padding: 0;
-  margin-left: 10px;
+  height: auto;
+  width: auto;
+  /* margin-left: 10px; */
   display: flex;
   position: left;
   color: black;
+  /* position: relative;
+  top: -20px;
+  left: 7px; */
 }
-
-/* .symbol {
-  -moz-transform: translate(10px, -25px);
-  -webkit-transform: translate(10px, -25px);
-  -o-transform: translate(10px, -25px);
-  -ms-transform: translate(10px, -25px);
-  transform: translate(10px, -25px);
-}
-*/
 
 #girar {
+  height: auto;
+  width: auto;
   -moz-transform: rotate(180deg);
   -webkit-transform: rotate(180deg);
   -o-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
-  margin-right: 10px;
+  /* margin-right: 10px; */
+  /* position: relative;
+  top: 20px;
+  left: -7px; */
 }
 
 .rojo {
   color: red;
 }
 
-/* .spade {
+input {
+  font-size: 20px;
 }
-.club {
-}
-.heart {
-}
-.diamond {
-} */
+
 /* 
     Aplica la clase .card a toda la división,
     pero solo aplica una de las clases de la pinta/palo a la vez,
@@ -70,3 +68,11 @@ body {
     Por ejemplo, un 3 de corazones tendrá esta declaración HTML:
     <div class='card heart'></div>
 */
+/* .spade {
+}
+.club {
+}
+.heart {
+}
+.diamond {
+} */
