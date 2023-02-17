@@ -53,10 +53,26 @@ window.onload = function() {
   }
 
   let botonSubmit = document.getElementById("botonSubmit");
+  let crearAlert = document.getElementById("alert");
 
   function clickbutton() {
     // simulamos el click del mouse en el boton del formulario
     document.getElementById("botonSubmit").click();
+  }
+
+  let stop = 0;
+
+  function alert(message) {
+    const wrapper = document.createElement("div");
+    wrapper.innerHTML = [
+      `<div class="alert alert-danger alert-dismissible" role="alert">`,
+      `   <div>${message}</div>`,
+      "</div>"
+    ].join("");
+
+    stop += 1;
+
+    crearAlert.append(wrapper);
   }
 
   function selectSize() {
@@ -68,16 +84,28 @@ window.onload = function() {
       // Cancel the default action, if needed (NO LO SÉ LA VERDAD SI HACE FALTA, CREO QUE NO, PORQUE NO ES UN SUBMIT)
       event.preventDefault();
 
-      if (inputElements[0].value > 200 && inputElements[1].value > 200) {
+      if (
+        (inputElements[0].value < 200 || inputElements[1].value < 200) &&
+        stop !== 1
+      ) {
+        alert("Minimum allowed values up to 200");
+        event.preventDefault();
+      } else if (
+        inputElements[0].value >= 200 &&
+        inputElements[1].value >= 200
+      ) {
         for (let i = 0; i < inputElements.length; i++) {
           document.querySelector(".card").style.width =
             inputElements[0].value + "px";
           document.querySelector(".card").style.height =
             inputElements[1].value + "px";
         }
-        if (inputElements[1].value > 200) {
+        if (inputElements[1].value >= 400) {
           document.querySelector("body").style.fontSize = 4 + "em";
+        } else if (inputElements[1].value >= 300) {
+          document.querySelector("body").style.fontSize = 3 + "em";
         } else document.querySelector("body").style.fontSize = 2 + "em";
+
         crearCarta();
 
         botonSubmit.dataset.bsDismiss = "modal";
